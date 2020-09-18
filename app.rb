@@ -17,10 +17,9 @@ def authenticateUser (username, password, userList)
     userList.each do |userMatch|
         if userMatch[:username] == username && userMatch[:password] == password
             return userMatch
-        else
-            return "Username and Password do not match"
         end
     end
+    "Username and Password do not match"
 end
 
 attempts = 1
@@ -32,11 +31,12 @@ while attempts < 4
     # prompt user for password
     print "Password:"
     password = gets.chomp
-    authenitucation = authenticateUser(username, password, users)
-    puts authenitucation
+    authentication = authenticateUser(username, password, users)
+    puts authentication
     puts "Press n to quit or any other key to continue"
     input = gets.chomp.downcase
     # break while loop with attempts
     break if input == "n"
     attempts += 1
 end
+puts "You have exceeded maximum number of attempts" if attempts = 4
