@@ -18,6 +18,10 @@ puts "If the password is correct, you will get back the user object"
 attempts = 1
 # loop through to verify username && password match
 while attempts < 4
-    puts "test"
-    attempts +=1
+    puts "Press n to quit or any other key to continue"
+    input = gets.chomp.downcase
+    if input == "n"
+        break
+    end
+    attempts += 1
 end
