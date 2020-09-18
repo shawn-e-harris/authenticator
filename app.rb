@@ -12,6 +12,17 @@ puts
 puts "This program will take input from the user and compare password"
 puts "If the password is correct, you will get back the user object"
 
+# compare username and password
+def authenticateUser (username, password, userList)
+    userList.each do |userMatch|
+        if userMatch[:username] == username && userMatch[:password] == password
+            return userMatch
+        else
+            return "Username and Password do not match"
+        end
+    end
+end
+
 attempts = 1
 # loop through to verify username && password match
 while attempts < 4
@@ -21,14 +32,8 @@ while attempts < 4
     # prompt user for password
     print "Password:"
     password = gets.chomp
-    # compare username and password
-    users.each do |user|
-        if user[:username] == username && user[:password] == password
-            puts user
-        else
-            puts "Username and Password do not match"
-        end
-    end
+    authenitucation = authenticateUser(username, password, users)
+    puts authenitucation
     puts "Press n to quit or any other key to continue"
     input = gets.chomp.downcase
     # break while loop with attempts
