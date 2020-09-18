@@ -28,7 +28,7 @@ while attempts < 4
     # prompt user for username
     print "Username:"
     username = gets.chomp
-    # prompt user for password
+    # prompt username for password
     print "Password:"
     password = gets.chomp
     authentication = authenticateUser(username, password, users)
