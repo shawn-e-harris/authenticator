@@ -1,5 +1,5 @@
 users = [
-    {username: "shawnH", password: "developer"},
+    {username: "shawn", password: "developer"},
     {username: "rickSanchez", password: "burp"},
     {username: "harryPotter", password: "slytherin"},
     {username: "blackPanther", password: "wakandaForever"},
@@ -12,16 +12,26 @@ puts
 puts "This program will take input from the user and compare password"
 puts "If the password is correct, you will get back the user object"
 
-# prompt user for username
-# prompt user for password
-# break while loop with attempts
 attempts = 1
 # loop through to verify username && password match
 while attempts < 4
+    # prompt user for username
+    print "Username:"
+    username = gets.chomp
+    # prompt user for password
+    print "Password:"
+    password = gets.chomp
+    # compare username and password
+    users.each do |user|
+        if user[:username] == username && user[:password] == password
+            puts user
+        else
+            puts "Username and Password do not match"
+        end
+    end
     puts "Press n to quit or any other key to continue"
     input = gets.chomp.downcase
-    if input == "n"
-        break
-    end
+    # break while loop with attempts
+    break if input == "n"
     attempts += 1
 end
